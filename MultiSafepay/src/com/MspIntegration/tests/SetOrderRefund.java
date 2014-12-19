@@ -19,9 +19,9 @@ public class SetOrderRefund {
     	Order order				= new Order();
     	order.currency			= "EUR";
     	order.amount			= "100"; //cents
-    	order.description		= "This is a refund example";
+    	order.description		= "Refund from Java Wrapper";
 
-    	JsonObject jsonResponse	= MspClient.sendRequest("orders/1418387933/refunds","POST",order); //order_id
+    	JsonObject jsonResponse	= MspClient.sendRequest("orders/1418980067470/refunds","POST",order); //order_id
 
     	System.out.println("Response");
     	System.out.println(jsonResponse);

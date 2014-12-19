@@ -23,7 +23,7 @@ public class SetOrderRedirect {
     	order.order_id				= Long.toString(date.getTime());
     	order.amount				= "1000";
     	order.currency				= "EUR";
-    	order.description			= "This the description for Java cart Item";
+    	order.description			= "Description for Java cart Item";
     	
     	order.plugin 				= new Plugin();
     	order.plugin.shop			= "Java MSP Wrapper";

@@ -27,7 +27,7 @@ public class SetOrderDirectPayAfterDelivery {
     	order.order_id				= Long.toString(date.getTime());
     	order.amount				= "13500";
     	order.currency				= "EUR";
-    	order.description			= "This the description from Java Wrapper";
+    	order.description			= "Description from Java Wrapper";
     	order.var1					= "Var 1 sample";
     	order.var2					= "Var 2 sample";
     	order.var3					= "Var 3 sample";
