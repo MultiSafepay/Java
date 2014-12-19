@@ -2,22 +2,41 @@ package com.MultiSafepay.client;
 
 public class Order {
 
-	public  String type 			= "";
-	public  String order_id 		= "";
-	public  String currency 		= "";
-	public  String gateway  		= "";
-	public  String description 		= "";
-	public  String var1 			= "";
-	public  String var2 			= "";
-	public  String var3 			= "";
-	public  String items 			= "";
+	public String order_id			= null;
+	public String recurring_id		= null;
+	public String cost				= null;
+	public String type				= null;
+	public String currency			= null;
+	public String amount			= null;
+	public String description		= null;
+	public String manual			= null;
+	public String gateway			= null;
+	public String days_active		= null;
+	public String payment_url		= null;
+	public String ship_date			= null;
+	public String tracktrace_code	= null;
+	public String reason			= null;
+	public String carrier			= null;
+	public String invoice_id		= null;
+	public String items				= null;
+	public String cart_expiration	= null;
+
+	public String var1				= null;
+	public String var2				= null;
+	public String var3				= null;
 	
-	public int amount 				= 0 ; //cents
+	public String use_shipping_notification	= null;
+	public String use_field_notifications 	= null;
 	
-	public final Customer customer 				= new Customer();
-	public final Delivery delivery 				= new Delivery();
-	public final Plugin plugin 					= new Plugin();
-	public final GatewayInfo gateway_info 		= new GatewayInfo();
-	public final PaymentOptions payment_options = new PaymentOptions();
+	public Customer customer 				= null;
+	public Delivery delivery 				= null;
+	public Plugin plugin 					= null;
+	public GatewayInfo gateway_info 		= null;
+	public PaymentOptions payment_options 	= null;
+	public ShoppingCart shopping_cart 		= null;
+	public GoogleAnalytics google_analytics = null;
+	public CustomFields custom_fields		= null;
+	public CustomInfo custom_info			= null;
+	public CheckoutOptions checkout_options	= null;
 	
 }

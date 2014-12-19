@@ -1,30 +1,35 @@
 package com.MultiSafepay.client;
 
+import java.lang.reflect.Type;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
 
 public class MspClient {
 	//Edit this lines
-	public static String api_key 		= "10324b12f0386ab3d9fc4090fcc9545e4f424a80"; //Api Key
+	public static String api_key 		= "10324b12f0386ab3d9fc4090fcc9545e4f424a80"; //Key provided by 
 	
 	//No edit after this lines
-	public static String api_version 	= "v1"; //Api version
+	public static String api_version 	= "v1";
 	public static String endPoint 		= "";
 
 	public static boolean testMode 		= true;
 	
 	private static String tesApitUrl 	= "http://localapi.multisafepay.com/v1/json/";
 	private static String apiUrl 		= "https://api.multisafepay.com/v1/json/";
-	private static String USER_AGENT = "Mozilla/5.0";
+	public static String USER_AGENT 	= "Mozilla/5.0";
 
 	/**
-	 * Initializes MspClient
+	 * Initialises MspClient
 	 * @param testMode true|false
 	 */
 	public static void init(Boolean testMode) {
@@ -36,29 +41,50 @@ public class MspClient {
 	}
 
 	/**
-	 * Send http request to Multisafepay
+	 * Send Http request to Multisafepay
 	 * @param url
 	 * @param method
 	 * @param jsonString
 	 * @return
 	 */
-	public static JsonObject sendRequest(String url, String method,String jsonString) {
+	public static JsonObject sendRequest(String url, String method,Object mspObject) {
 
-		JsonObject result = null;
+		JsonParser parser 		= new JsonParser();
+		JsonObject jsonResponse = null;
+		String _overrideMethod	= null;
+		String jsonString		= null;
+		if(mspObject !=null)
+		{
+			jsonString 	= JsonHandler(mspObject);
+		}
 		if(method == "")
 		{
 			method	= "GET";
 		}
+		
+		if(method == "PATCH") //Workaround HttpURLConnection does not support all modern methods like PATCH
+		{
+			_overrideMethod = "PATCH";
+			method 			= "POST";
+		}
+		
 		method	= method.toUpperCase();
 		try {
+			
 			System.out.println("Send Api Request: " + MspClient.endPoint + url);
+			
 			URL obj = new URL(MspClient.endPoint + url); 
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();           
 			con.setDoOutput(true);
-			
 			con.setInstanceFollowRedirects(false); 
 			con.setRequestMethod(method);
 			con.setRequestProperty("User-Agent", USER_AGENT);
+			
+			if(_overrideMethod != null)
+			{
+				con.setRequestProperty("X-HTTP-Method-Override", _overrideMethod);
+			}
+			
 			con.setRequestProperty("api_key", MspClient.api_key);
 			con.setRequestProperty("charset", "utf-8");
 			con.setUseCaches (false);
@@ -72,6 +98,8 @@ public class MspClient {
 				wr.writeBytes(jsonString);
 				wr.flush();
 				wr.close();
+				System.out.println(method + " Data:");
+				System.out.println(jsonString);
 			}
 			
 			int status = con.getResponseCode();
@@ -97,18 +125,44 @@ public class MspClient {
 
 			reader.close();
 			
-			JsonParser parser = new JsonParser();
-			JsonObject jsonResponse = (JsonObject) parser.parse(response.toString());
+			jsonResponse = (JsonObject) parser.parse(response.toString());
 
-			result	= jsonResponse;
 			con.disconnect();
 
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		return result;
+		return jsonResponse;
 	}
+	
+	/**
+	 * Helper 
+	 * @param jsonString
+	 * @return
+	 */
+	public static String JsonHandler(Object _object)
+	{
+		Gson gson 			= new Gson();
+		String jsonString	= gson.toJson(_object);
+		
+		Type type = new TypeToken<Map<String, Object>>() {}.getType();
+		Map<String, Object> data = new Gson().fromJson(jsonString, type);
 
+		for (Iterator<Map.Entry<String, Object>> it = data.entrySet().iterator(); it.hasNext();) {
+		    Map.Entry<String, Object> entry = it.next();
+		    if (entry.getValue() == null) {
+		        it.remove();
+		    } else if (entry.getValue().getClass().equals(ArrayList.class)) {
+		        if (((ArrayList<?>) entry.getValue()).size() == 0) {
+		            it.remove();
+		        }
+		    }
+		}
+		String json = new GsonBuilder().create().toJson(data);
+		return json;
+	}
+	
+	
 	public static JsonObject sendRequest(String url, String method) {
 		
 		return MspClient.sendRequest(url, method,null);

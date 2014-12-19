@@ -1,30 +1,35 @@
 package com.MspIntegration.tests;
 
-import com.MultiSafepay.client.MspClient;
-import com.MultiSafepay.client.Order;
-import com.google.gson.Gson;
+import com.MultiSafepay.client.*;
 import com.google.gson.JsonObject;
 
-public class SetRedirectTransaction {
+/**
+ * Creates a direct IDEAL Order
+ * POST - orders
+ * @author Multisafepay.com
+ */
+public class SetOrderDirectIDEAL {
 
     public static void main(String[] args) {
       
     	java.util.Date date		= new java.util.Date();
-    	JsonObject jsonResponse = null;
-    	
+    
     	//Initialises MspClient
     	MspClient.init(true);
     	
-    	Order order					= new Order();
-    	order.type					= "redirect";
-    	order.order_id				= Long.toString(date.getTime());
-    	order.amount				= 1000; //cents
-    	order.currency				= "EUR";
-    	order.description			= "This the description for Java cart Item";
+    	Order order			= new Order();
+    	order.type			= "direct";
+    	order.gateway		= "IDEAL";
+    	order.order_id		= Long.toString(date.getTime());
+    	order.amount		= "1000"; // cents
+    	order.currency		= "EUR";
+    	order.description	= "This the description for Java cart Item";
     	
+    	order.plugin 				= new Plugin();
     	order.plugin.shop			= "Java Test";
     	order.plugin.plugin_version	= "1.0";
 
+    	order.customer 				= new Customer();
     	order.customer.locale		= "en";
     	order.customer.ip_address	= "127.1.1.1";
     	order.customer.first_name	= "Test name";
@@ -41,23 +46,23 @@ public class SetRedirectTransaction {
     	order.customer.referrer		= "";
     	order.customer.user_agent	= "";
     	
+    	order.payment_options 					= new PaymentOptions();
     	order.payment_options.cancel_url		= "http://test.com/cancel_url";
     	order.payment_options.notification_url	= "http://test.com/notification_url";
     	order.payment_options.redirect_url		= "http://test.com/redirect_url";
-    	order.payment_options.close_window		= false;
     	
-    	//Generates Json from Orders object
-    	Gson gson 		= new Gson();
-
-    	jsonResponse	= MspClient.sendRequest("orders","POST",gson.toJson(order));
+    	order.gateway_info 				= new GatewayInfo();
+    	order.gateway_info.issuer_id	= "3151"; //*Required see getIssuersTest Sample
+    	
+    	JsonObject jsonResponse	= MspClient.sendRequest("orders","POST",order);
         
-    	//Gets payment_url for redirection
+    	System.out.println("Response");
+    	System.out.println(jsonResponse);
+    	
+    	//Gets IDEAL payment_url
     	String payment_url	= MspClient.getPaymenUrl(jsonResponse);
     	
     	System.out.println("payment_url:");
     	System.out.println(payment_url);
-
-    	System.out.println("Response");
-    	System.out.println(jsonResponse);
     }
 }

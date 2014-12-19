@@ -3,6 +3,12 @@ package com.MspIntegration.tests;
 import com.MultiSafepay.client.MspClient;
 import com.google.gson.JsonObject;
 
+/**
+ * Get list of payment methods
+ * GET - gateways
+ * GET - gateways/{id}
+ * @author Multisafepay.com
+ */
 public class GetGateways {
 
     public static void main(String[] args) {
@@ -12,11 +18,10 @@ public class GetGateways {
     	//Initialises MspClient
     	MspClient.init(true);
     	
-    	//Get list of payment methods
     	jsonResponse = MspClient.sendRequest("gateways");
     	System.out.println(jsonResponse);
     	
-    	//Get a selected payment method
+    	//by preselected id
     	jsonResponse = MspClient.sendRequest("gateways/visa");
     	System.out.println(jsonResponse);
     }
