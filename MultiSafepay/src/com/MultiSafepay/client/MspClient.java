@@ -24,7 +24,7 @@ public class MspClient {
 
 	public static boolean testMode 		= true;
 	
-	private static String tesApitUrl 	= "http://localapi.multisafepay.com/v1/json/";
+	private static String tesApitUrl 	= "https://testapi.multisafepay.com/v1/json/";
 	private static String apiUrl 		= "https://api.multisafepay.com/v1/json/";
 	public static String USER_AGENT 	= "Mozilla/5.0";
 

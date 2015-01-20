@@ -50,7 +50,6 @@ public class SetOrderRedirect {
     	order.payment_options.cancel_url		= "http://test.com/cancel_url";
     	order.payment_options.notification_url	= "http://test.com/notification_url";
     	order.payment_options.redirect_url		= "http://test.com/redirect_url";
-    	order.payment_options.close_window		= false;
     	
     	JsonObject jsonResponse	= MspClient.sendRequest("orders","POST",order);
 

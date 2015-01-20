@@ -37,7 +37,6 @@ public class SetOrderDirectPayAfterDelivery {
     	order.payment_options.cancel_url		= "http://test.com/cancel_url";
     	order.payment_options.notification_url	= "http://test.com/notification_url";
     	order.payment_options.redirect_url		= "http://test.com/redirect_url";
-    	order.payment_options.close_window		= false;
     	
     	//Plugin
     	order.plugin 					= new Plugin();
@@ -124,9 +123,6 @@ public class SetOrderDirectPayAfterDelivery {
     	List<ShoppingCartItem> items 	= new ArrayList<ShoppingCartItem>();
     	
     	//Cart Item
-    	Weight weight 	= new Weight();
-    	weight.unit		= "KG";
-    	weight.value	= "12";
     	items.add(ShoppingCartItem.add(	
     			"Geometric Candle Holders",
     			"Sample description",
@@ -135,12 +131,10 @@ public class SetOrderDirectPayAfterDelivery {
     			"1",
     			"123456",
     			"none",
-    			weight
+    			Weight.set("KG", "12")
     			));
     	
     	//Cart Item
-    	weight.unit		= "KG";
-    	weight.value	= "10";
     	items.add(ShoppingCartItem.add(	
     			"Nice apple",
     			"Sample description 2",
@@ -149,12 +143,11 @@ public class SetOrderDirectPayAfterDelivery {
     			"1",
     			"123456",
     			"none",
-    			weight
+    			Weight.set("KG", "10")
     			));
     	
     	//Cart Item - Shipping
-    	weight.unit		= "";
-    	weight.value	= "";
+
     	items.add(ShoppingCartItem.add(	
     			"Flat Rate - Fixed",
     			"Shipping",
@@ -163,7 +156,7 @@ public class SetOrderDirectPayAfterDelivery {
     			"1",
     			"123456",
     			"none",
-    			weight
+    			new Weight()
     			));
     	
     	order.shopping_cart.items	= items;
