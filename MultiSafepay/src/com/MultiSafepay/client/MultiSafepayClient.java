@@ -24,8 +24,7 @@ public class MultiSafepayClient {
 	//No edit after this lines
 	public static boolean testMode 		= true;
 	
-	//private static String tesApitUrl 	= "https://testapi.multisafepay.com/v1/json/";
-	private static String tesApitUrl 	= "http://devapi.multisafepay.com/v1/json/";
+	private static String tesApitUrl 	= "https://testapi.multisafepay.com/v1/json/";
 	private static String apiUrl 		= "https://api.multisafepay.com/v1/json/";
 	
 	private static String endPoint 		= "";
