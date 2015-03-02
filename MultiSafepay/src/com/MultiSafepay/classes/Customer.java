@@ -20,4 +20,5 @@ public class Customer {
 	public String user_agent 		= null;
 	public Boolean company 			= null;
 	public Boolean close_window 	= null;
+	public Boolean disable_send_email = null;
 }
