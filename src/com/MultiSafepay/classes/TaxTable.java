@@ -20,11 +20,12 @@ public class TaxTable {
 		table.rules				= rules;
 		return table;
 	}
-	public static TaxTable	setDefault(String rate, Boolean shipping_taxed)
+	public static TaxTable	setDefault(String name, List<TaxTableRule> rules, Boolean shipping_taxed)
 	{
 		TaxTable	table		= new TaxTable();
-		table.rate				= rate;
+		table.name				= name;
 		table.shipping_taxed	= shipping_taxed;
+		table.rules				= rules;
 		return table;
 	}
 }

@@ -86,7 +86,7 @@ public class SetOrderFastCheckout {
     	
     	checkout_options.tax_tables	= new TaxTables();
     	
-    	checkout_options.tax_tables.addDefault(TaxTable.setDefault("0.21",true));
+    	//checkout_options.tax_tables.addDefault(TaxTable.setDefault("0.21",true));
     	
     	List<TaxTable> tables 		= new ArrayList<TaxTable>();
     	

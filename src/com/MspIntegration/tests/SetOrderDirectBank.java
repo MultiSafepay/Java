@@ -22,7 +22,7 @@ public class SetOrderDirectBank {
     			"Product description", 
     			1000, 
     			"EUR", 
-    			GatewayInfo.setDirectBank(
+    			GatewayInfo.DirectBank(
     					"John Doe", 
     					"Amsterdam", 
     					"NL",

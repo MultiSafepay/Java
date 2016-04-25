@@ -22,7 +22,7 @@ public class SetOrderDirectIDEAL {
     			1000, 
     			"EUR",
     			new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
-    			GatewayInfo.setDirectIdeal("3151")
+    			GatewayInfo.Ideal("3151")
     			
     	);
     	

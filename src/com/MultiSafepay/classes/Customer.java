@@ -21,4 +21,5 @@ public class Customer {
 	public Boolean company 			= null;
 	public Boolean close_window 	= null;
 	public Boolean disable_send_email = null;
+	
 }

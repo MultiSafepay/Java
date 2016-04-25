@@ -18,7 +18,7 @@ import com.google.gson.reflect.TypeToken;
 public class MultiSafepayClient {
 	
 	//Edit this lines
-	public static String api_key 		= "10324b12f0386ab3d9fc4090fcc9545e4f424a80"; //Key provided by MultisafePay
+	public static String api_key 		= "YOUR_API_KEY"; //Key provided by MultisafePay
 	public static String USER_AGENT 	= "Mozilla/5.0";
 	
 	//No edit after this lines

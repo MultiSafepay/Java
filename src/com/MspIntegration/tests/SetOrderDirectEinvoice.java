@@ -11,7 +11,7 @@ import com.google.gson.JsonObject;
  * @author Multisafepay.com
  */
 
-public class SetOrderDirectPayAfterDelivery {
+public class SetOrderDirectEinvoice {
 
 	public static void main(String[] args) {
 	      
@@ -41,9 +41,9 @@ public class SetOrderDirectPayAfterDelivery {
     	items.add(ShoppingCartItem.add(	"Test Product","Sample description","200.0","EUR","1","123456",""));
     	
     	Order order = new Order();
-    	order.setDirectPayAfter(Long.toString(date.getTime()), "Product description", 24200, "EUR", 
+    	order.setDirectEinvoice(Long.toString(date.getTime()), "Product description", 24200, "EUR", 
     			new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
-    			GatewayInfo.PayAfterDelivery("1980-01-30","NL39 RABO 0300 0652 64","+31 (0)20 8500 500","test@multisafepay.com","referrer","user-agent"),
+    			GatewayInfo.Einvoice("1980-01-30","NL39 RABO 0300 0652 64","+31 (0)20 8500 500","test@multisafepay.com","referrer","user-agent"),
     			new ShoppingCart(items),
     			checkout_options,
     			customer
