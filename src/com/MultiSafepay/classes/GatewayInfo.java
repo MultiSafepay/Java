@@ -3,6 +3,7 @@ package com.MultiSafepay.classes;
 public class GatewayInfo {
 
 	public String issuer_id 			= "";
+	public Integer qr_size 				= null;
 	public String birthday 				= "";
 	public String gender 				= "";
 	public String bank_account 			= "";
@@ -68,6 +69,13 @@ public class GatewayInfo {
 	{
 		GatewayInfo info	= new GatewayInfo();
 		info.issuer_id 		= issuer_id;
+		return info;
+	}
+	
+	public static GatewayInfo IdealQR(Integer qr_size)
+	{
+		GatewayInfo info	= new GatewayInfo();
+		info.qr_size 		= qr_size;
 		return info;
 	}
 }

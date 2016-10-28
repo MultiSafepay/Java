@@ -136,4 +136,17 @@ public class Order {
 		this.gateway_info 		= gateway_info;
 		return this;
 	}
+	
+	public Order setDirectIdealQR(String order_id,String description,Integer amount,String currency,PaymentOptions payment_options,GatewayInfo gateway_info)
+	{
+		this.type 				= "redirect";
+		this.gateway			= "IDEALQR";
+		this.order_id 			= order_id;
+		this.description 		= description;
+		this.amount 			= amount;
+		this.currency 			= currency;
+		this.payment_options 	= payment_options;
+		this.gateway_info 		= gateway_info;
+		return this;
+	}
 }

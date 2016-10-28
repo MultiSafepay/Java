@@ -263,4 +263,24 @@ public class MultiSafepayClient {
     	}
     	return payment_url;
     }
+    
+    /**
+	 * Parse qr_url from response for transactions with redirection or payment_url
+	 * @param response
+	 * @return
+	 */
+    public static String getQrUrl(JsonObject response)
+    {
+    	String qr_url	= null;
+    	try
+    	{
+    		JsonObject data   	= response.getAsJsonObject("data");
+    		qr_url				= data.get("qr_url").getAsString();
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(e.toString());
+    	}
+    	return qr_url;
+    }
 }
