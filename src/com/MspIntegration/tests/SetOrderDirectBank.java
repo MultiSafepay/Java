@@ -10,28 +10,19 @@ import com.google.gson.JsonObject;
 public class SetOrderDirectBank {
 
 	public static void main(String[] args) {
-	
-		java.util.Date date		= new java.util.Date();
-    	
-    	MultiSafepayClient.init(true);
-    	
-    	
-    	Order order = new Order();
-    	order.setDirectBank(
-    			Long.toString(date.getTime()), 
-    			"Product description", 
-    			1000, 
-    			"EUR", 
-    			GatewayInfo.DirectBank(
-    					"John Doe", 
-    					"Amsterdam", 
-    					"NL",
-    					"IBAN 999999999",
-    					"NL")
-    			
-    	);
-    	
-    	JsonObject jsonResponse 	= MultiSafepayClient.createOrder(order);
-    	System.out.println(jsonResponse);
+
+		java.util.Date date = new java.util.Date();
+
+		MultiSafepayClient.init(true);
+
+		Order order = new Order();
+		order.setDirectBank(Long.toString(date.getTime()),
+				"Product description", 1000, "EUR", GatewayInfo.DirectBank(
+						"John Doe", "Amsterdam", "NL", "IBAN 999999999", "NL")
+
+		);
+
+		JsonObject jsonResponse = MultiSafepayClient.createOrder(order);
+		System.out.println(jsonResponse);
 	}
 }

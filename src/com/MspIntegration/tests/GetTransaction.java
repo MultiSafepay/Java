@@ -6,10 +6,11 @@ import com.google.gson.JsonObject;
 public class GetTransaction {
 	public static void main(String[] args) {
 
-    	MultiSafepayClient.init(true);
-    	
-    	JsonObject jsonResponse = MultiSafepayClient.GetTransaction("9941812537632491");
+		MultiSafepayClient.init(true);
 
-    	System.out.println(jsonResponse);
-    }
+		JsonObject jsonResponse = MultiSafepayClient
+				.GetTransaction("9941812537632491");
+
+		System.out.println(jsonResponse);
+	}
 }

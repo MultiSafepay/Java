@@ -7,13 +7,14 @@ import com.google.gson.JsonObject;
  * @author Multisafepay.com
  */
 public class GetOrderTransactions {
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	    	MultiSafepayClient.init(true);
+		MultiSafepayClient.init(true);
 
-	    	JsonObject jsonResponse = MultiSafepayClient.GetOrderTransactions("1418980067470");
+		JsonObject jsonResponse = MultiSafepayClient
+				.GetOrderTransactions("1418980067470");
 
-	    	System.out.println(jsonResponse);
-	    }
+		System.out.println(jsonResponse);
+	}
 
 }

@@ -8,12 +8,12 @@ import com.google.gson.JsonObject;
  */
 public class GetGateways {
 
-    public static void main(String[] args) {
-     
-    	MultiSafepayClient.init(true);
-    	
-    	JsonObject jsonResponse = MultiSafepayClient.GetGateways();
-    	
-    	System.out.println(jsonResponse);
-    }
+	public static void main(String[] args) {
+
+		MultiSafepayClient.init(true);
+
+		JsonObject jsonResponse = MultiSafepayClient.GetGateways();
+
+		System.out.println(jsonResponse);
+	}
 }

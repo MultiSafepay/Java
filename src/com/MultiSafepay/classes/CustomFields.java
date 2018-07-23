@@ -1,5 +1,5 @@
 package com.MultiSafepay.classes;
 
 public class CustomFields {
-	public String test 	= "";
+	public String test = "";
 }

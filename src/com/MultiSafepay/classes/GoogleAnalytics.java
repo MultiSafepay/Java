@@ -1,5 +1,5 @@
 package com.MultiSafepay.classes;
 
 public class GoogleAnalytics {
-	public  String account 	= "";
+	public String account = "";
 }

@@ -9,11 +9,12 @@ import com.google.gson.JsonObject;
 public class SetOrderRefund {
 
 	public static void main(String[] args) {
-	      
-    	MultiSafepayClient.init(true);
 
-    	JsonObject jsonResponse	= MultiSafepayClient.SetOrderRefund("1418980067470",100,"EUR","Refund order");
+		MultiSafepayClient.init(true);
 
-    	System.out.println(jsonResponse);
-    }
+		JsonObject jsonResponse = MultiSafepayClient.SetOrderRefund(
+				"1418980067470", 100, "EUR", "Refund order");
+
+		System.out.println(jsonResponse);
+	}
 }
