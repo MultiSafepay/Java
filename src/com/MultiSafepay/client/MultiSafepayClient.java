@@ -36,12 +36,19 @@ public class MultiSafepayClient {
 	 *            true|false
 	 */
 	public static void init(Boolean testMode) {
+		MultiSafepayClient.init(testMode, "");
+	}
+	
+	public static void init(Boolean testMode, String apiKey) {
 		MultiSafepayClient.endPoint = MultiSafepayClient.apiUrl;
 		MultiSafepayClient.testMode = testMode;
-
+		
 		if (MultiSafepayClient.testMode)
 			MultiSafepayClient.endPoint = MultiSafepayClient.tesApitUrl;
-
+		
+		if(apiKey != "") {
+			MultiSafepayClient.api_key = apiKey;
+		}
 	}
 
 	public static JsonObject GetGateways() {
