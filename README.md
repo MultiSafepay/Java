@@ -19,7 +19,7 @@ Setup the client for testing
 ```java
 MultiSafepayClient.init(true, "YOUR_API_KEY");
 ```
-Setup the client for testing
+Create an order
 ```java
 Order order = new Order();
 order.setRedirect(
