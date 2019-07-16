@@ -23,22 +23,22 @@ Create an order
 ```java
 Order order = new Order();
 order.setRedirect(
-        '1234', 
-        "Product description",
-        1000, 
-        "EUR", 
-        new PaymentOptions(
-            "https://example.com/notify",
-            "https://example.com/success",
-            "https://example.com/failed"
-            )
-        );
+    '1234', 
+    "Product description",
+    1000, 
+    "EUR", 
+    new PaymentOptions(
+        "https://example.com/notify",
+        "https://example.com/success",
+        "https://example.com/failed"
+        )
+    );
 
-    JsonObject jsonResponse = MultiSafepayClient.createOrder(order);
-    System.out.println(jsonResponse);
+JsonObject jsonResponse = MultiSafepayClient.createOrder(order);
+System.out.println(jsonResponse);
 
-    String payment_url = MultiSafepayClient.getPaymenUrl(jsonResponse);
-    System.out.println(payment_url);
+String payment_url = MultiSafepayClient.getPaymenUrl(jsonResponse);
+System.out.println(payment_url);
 ```
 
 Click [here](https://github.com/MultiSafepay/Java/tree/master/src/com/MspIntegration/tests) for more examples.
