@@ -44,7 +44,7 @@ System.out.println(payment_url);
 Click [here](https://github.com/MultiSafepay/Java/tree/master/src/com/MspIntegration/tests) for more examples.
 
 ## Support
-If you have any issues, problems or questions you can create an issue on this repository or contact us at <a href="mailto:techsupport@multisafepay.com">techsupport@multisafepay.com</a>
+If you have any issues, problems or questions you can create an issue on this repository or contact us at <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
 
 ## Mistakes and improvements 
 If you spot mistakes or want to contribute in improving this wrapper, feel free to [create pull requests](https://github.com/MultiSafepay/Java/pulls)
