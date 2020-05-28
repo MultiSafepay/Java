@@ -24,7 +24,7 @@ public class MultiSafepayClient {
 	// No edit after this lines
 	public static boolean testMode = true;
 
-	private static String tesApitUrl = "https://testapi.multisafepay.com/v1/json/";
+	private static String testApiUrl = "https://testapi.multisafepay.com/v1/json/";
 	private static String apiUrl = "https://api.multisafepay.com/v1/json/";
 
 	private static String endPoint = "";
@@ -43,8 +43,9 @@ public class MultiSafepayClient {
 		MultiSafepayClient.endPoint = MultiSafepayClient.apiUrl;
 		MultiSafepayClient.testMode = testMode;
 		
-		if (MultiSafepayClient.testMode)
-			MultiSafepayClient.endPoint = MultiSafepayClient.tesApitUrl;
+		if (MultiSafepayClient.testMode){
+			MultiSafepayClient.endPoint = MultiSafepayClient.testApiUrl;
+		}
 		
 		if(apiKey != "") {
 			MultiSafepayClient.api_key = apiKey;
