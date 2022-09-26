@@ -3,23 +3,25 @@
 </p>
 
 # Java wrapper for the MultiSafepay API
-This wrapper simplifies working with the MultiSafepay API and allows you to integrate MultiSafepay within your Java application.
+This wrapper simplifies working with the MultiSafepay API and lets you integrate MultiSafepay in your Java application.
 
-## About MultiSafepay ##
-MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
+## About MultiSafepay
+MultiSafepay is a Dutch payment services provider, which takes care of contracts, processing transactions, and collecting payments for a range of local and international payment methods. Start selling online today and manage all your transactions in one place!
 
 ## Requirements
-- To use the wrapper you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
+You will need a MultiSafepay account. Consider a [test account](https://testmerchant.multisafepay.com/signup) first.
 
 ## Installation
-- Clone this git repository.
+Clone this git repository.
 
 ## Usage
-Setup the client for testing
+Set up the client for testing:
+
 ```java
 MultiSafepayClient.init(true, "YOUR_API_KEY");
 ```
-Create an order
+Create an order:
+
 ```java
 Order order = new Order();
 order.setRedirect(
@@ -41,16 +43,17 @@ String payment_url = MultiSafepayClient.getPaymenUrl(jsonResponse);
 System.out.println(payment_url);
 ```
 
-Click [here](https://github.com/MultiSafepay/Java/tree/master/src/com/MspIntegration/tests) for more examples.
+See [more examples](https://github.com/MultiSafepay/Java/tree/master/src/com/MspIntegration/tests).
 
 ## Support
-If you have any issues, problems or questions you can create an issue on this repository or contact us at <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
+
+Create an issue on this repository or email <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
 
 ## Mistakes and improvements 
-If you spot mistakes or want to contribute in improving this wrapper, feel free to [create pull requests](https://github.com/MultiSafepay/Java/pulls)
+If you spot mistakes or want to help improve this wrapper, feel free to [create a pull request](https://github.com/MultiSafepay/Java/pulls).
 
-## API Documentation
-[Click here](https://docs.multisafepay.com/api/) for the MultiSafepay API documentation.
+## API reference
+See MultiSafepay Docs – [API reference](https://docs.multisafepay.com/api/).
 
 ## License
 [MIT License](https://github.com/MultiSafepay/Java/blob/master/LICENSE)
